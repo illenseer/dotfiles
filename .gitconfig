@@ -1,0 +1,45 @@
+[user]
+    name = Nils Pascal Illenseer
+    email = illenseer@variomedia.de
+[core]
+    editor = /usr/bin/vim
+    excludesfile = /Users/nils/.gitignore_global
+[color]
+    ui = auto
+[alias]
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+    wipe = "!git reset --hard;git clean -fd"
+    distclean = "!git reset --hard;git clean -fdx"
+    st = status -sb
+    c = commit -v
+    co = checkout
+    d = diff
+    ds = diff --staged
+    dt = difftool
+    mt = mergetool
+    a = add
+    unstage = reset HEAD --
+    p = push -u
+    l = pull
+[push]
+    default = simple
+[pull]
+    rebase = true
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = Kaleidoscope
+[difftool]
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+[mergetool]
+    prompt = false
+[merge]
+    tool = Kaleidoscope
