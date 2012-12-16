@@ -85,7 +85,7 @@ alias bf='brew upgrade'
 alias bs='brew search'
 alias bi='brew install'
 alias bp='brew uninstall'
-alias bl='brew list'
+alias bl='brew list -1'
 
 # vagrant aliases
 alias v='vagrant'
