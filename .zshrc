@@ -126,6 +126,7 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias grs='git remote set-url'
 alias grd='git rebase develop'
+alias grm='git rebase master'
 alias gcl='git clone'
 
 # add REPORTTIME for task longer than 10s
