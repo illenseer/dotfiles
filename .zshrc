@@ -46,7 +46,7 @@ if [[ `uname` == "Darwin" ]]; then
     fi
 
     if [[ `id -un` == "nils" ]]; then
-        export PATH=$PATH:$HOME/Applications
+        export PATH=$PATH:$HOME/Applications:$HOME/Library/Python/2.7/bin
     fi
 fi
 
@@ -128,6 +128,8 @@ alias grs='git remote set-url'
 alias grd='git rebase develop'
 alias grm='git rebase master'
 alias gcl='git clone'
+alias gsp='git sweep preview'
+alias gsc='git sweep cleanup'
 
 # add REPORTTIME for task longer than 10s
 export REPORTTIME=10
