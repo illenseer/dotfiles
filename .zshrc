@@ -76,6 +76,7 @@ alias la="ls -a"
 alias lla="ls -al"
 alias rm="rm -i"
 alias sed="/usr/local/bin/gsed"
+alias mc="mc -d"
 
 # brew aliases
 alias brew='nocorrect brew'
