@@ -100,8 +100,8 @@ alias gu='git reset HEAD --'
 alias gp='git push'
 alias gpa='git push --all'
 alias gl='git pull'
-alias lg="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit"
-alias lgi="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci %an)%Creset' --abbrev-commit"
+alias lg="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar %an)%Creset' --abbrev-commit"
+alias lgi="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai %an)%Creset' --abbrev-commit"
 alias s='git status -sb'
 alias gs='git status -sb'
 alias gst='git status'
