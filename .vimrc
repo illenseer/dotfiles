@@ -97,6 +97,7 @@ nnoremap <silent> <Leader>F :call EasyMotion#F(0, 1)<CR>
 map <leader>c \\\
 autocmd FileType gringo set commentstring=%\ %s
 autocmd FileType puppet set commentstring=#\ %s
+autocmd FileType python set commentstring=#\ %s
 
 " get .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
