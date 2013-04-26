@@ -61,6 +61,9 @@ fi
 # disable virtualenv prompt, because it is integrated into the zsh theme.
 #export VIRTUAL_ENV_DISABLE_PROMPT=true
 
+# Ignore duplicates in history
+setopt hist_ignore_all_dups
+
 # search up/down
 bindkey "^[[A" 'history-beginning-search-backward'
 bindkey "^[[B" 'history-beginning-search-forward'
