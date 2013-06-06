@@ -21,8 +21,6 @@
     unstage = reset HEAD --
     p = push -u
     l = pull
-[push]
-    default = simple
 [pull]
     rebase = true
 [difftool "sourcetree"]
@@ -46,3 +44,5 @@
     tool = Kaleidoscope
 [branch "master"]
 	mergeoptions = --no-ff
+[push]
+	default = simple

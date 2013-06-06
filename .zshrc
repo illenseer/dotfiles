@@ -46,7 +46,7 @@ if [[ `uname` == "Darwin" ]]; then
     fi
 
     if [[ `id -un` == "nils" ]]; then
-        export PATH=$PATH:$HOME/Applications:$HOME/Library/Python/2.7/bin
+        export PATH=$PATH:$HOME/Applications:$HOME/Applications/clasp/Contents/MacOS:$HOME/Library/Python/2.7/bin
     fi
 fi
 
@@ -86,6 +86,7 @@ alias brew='nocorrect brew'
 alias b='brew'
 alias bu='brew update'
 alias bf='brew upgrade'
+alias buf='brew update;brew upgrade'
 alias bs='brew search'
 alias bi='brew install'
 alias bp='brew uninstall'
