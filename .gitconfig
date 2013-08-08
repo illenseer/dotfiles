@@ -1,6 +1,6 @@
 [user]
     name = Nils Pascal Illenseer
-    email = illenseer@variomedia.de
+    email = ni@vm.ag
 [core]
     editor = /usr/bin/vim
     excludesfile = /Users/nils/.gitignore_global
@@ -45,4 +45,4 @@
 [branch "master"]
 	mergeoptions = --no-ff
 [push]
-	default = simple
+	default = current
