@@ -11,6 +11,6 @@ fi
 export LANG LANGUAGE LC_ALL
 
 # editor settings
-EDITOR="/usr/bin/vim"
+EDITOR="/usr/local/bin/vim"
 ALTERNATE_EDITOR="/usr/bin/emacs"
 export EDITOR ALTERNATE_EDITOR
