@@ -46,7 +46,7 @@ if [[ `uname` == "Darwin" ]]; then
     fi
 
     if [[ `id -un` == "nils" ]]; then
-        export PATH=$PATH:$HOME/Applications:$HOME/Applications/clasp/Contents/MacOS:$HOME/Library/Python/2.7/bin
+        export PATH=$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/Applications/clasp/Contents/MacOS:$HOME/Library/Python/2.7/bin
     fi
 fi
 
@@ -119,10 +119,12 @@ alias mt='git mergetool'
 alias gc='git commit -v'
 alias gca='git commit -v --amend'
 alias gm='git merge'
+alias gmd='git merge develop'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
 alias gcm='git checkout master'
+alias gcd='git checkout develop'
 alias gre='git remote -v'
 alias gra='git remote add'
 alias grr='git remote rm'

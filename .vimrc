@@ -18,11 +18,14 @@ set background=dark
 set t_Co=256
 let g:badwolf_termcolors=256
 colorscheme badwolf
+" colorscheme vividchalk
+" colorscheme distinguished
 
 " set guifont=Menlo\ for\ Powerline:h14
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 let g:Powerline_symbols='fancy'
+let g:airline_powerline_fonts = 1
 
 set encoding=utf-8
 set scrolloff=3
