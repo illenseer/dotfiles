@@ -137,6 +137,9 @@ alias stp='git stash pop'
 alias gsp='git sweep preview'
 alias gsc='git sweep cleanup'
 
+# more aliases
+alias ssh='nocorrect ssh'
+
 # add REPORTTIME for task longer than 10s
 export REPORTTIME=10
 
