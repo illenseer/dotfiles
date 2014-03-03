@@ -23,12 +23,6 @@
     l = pull
 [pull]
     rebase = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -43,6 +37,6 @@
 [merge]
     tool = Kaleidoscope
 [branch "master"]
-	mergeoptions = --no-ff
+    mergeoptions = --no-ff
 [push]
-	default = current
+    default = current
