@@ -149,4 +149,4 @@ export ZLSCOLORS="${LS_COLORS}"
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source $HOME/Library/Python/2.7/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
