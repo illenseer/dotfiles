@@ -92,9 +92,6 @@ alias bi='brew install'
 alias bp='brew uninstall'
 alias bl='brew list -1'
 
-# vagrant aliases
-alias v='vagrant'
-
 # git aliases
 unalias d
 alias git='nocorrect git'
@@ -140,11 +137,20 @@ alias gsc='git sweep cleanup'
 # more aliases
 alias ssh='nocorrect ssh'
 
+# vagrant aliases
+alias v='vagrant'
+
+# Vagrant
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+
 # add REPORTTIME for task longer than 10s
 export REPORTTIME=10
 
 [ -f /etc/DIR_COLORS ] && eval $(dircolors -b /etc/DIR_COLORS)
 export ZLSCOLORS="${LS_COLORS}"
+
+# Treat unrecognized command-line options as warnings
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
