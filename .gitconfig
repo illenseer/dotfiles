@@ -36,7 +36,5 @@
     prompt = false
 [merge]
     tool = Kaleidoscope
-[branch "master"]
-    mergeoptions = --no-ff
 [push]
     default = current

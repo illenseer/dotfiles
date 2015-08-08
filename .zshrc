@@ -21,7 +21,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -46,7 +46,7 @@ if [[ `uname` == "Darwin" ]]; then
     fi
 
     if [[ `id -un` == "nils" ]]; then
-        export PATH=$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/Applications/clasp/Contents/MacOS:$HOME/Library/Python/2.7/bin
+        export PATH=$PATH:$HOME/.local/bin:$HOME/Applications:$HOME/Library/Python/2.7/bin
     fi
 fi
 
@@ -63,10 +63,6 @@ fi
 
 # Ignore duplicates in history
 setopt hist_ignore_all_dups
-
-# search up/down
-bindkey "^[[A" 'history-beginning-search-backward'
-bindkey "^[[B" 'history-beginning-search-forward'
 
 # word forward/backward
 bindkey '[C' forward-word
@@ -151,6 +147,10 @@ export ZLSCOLORS="${LS_COLORS}"
 
 # Treat unrecognized command-line options as warnings
 export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+
+# search up/down
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs

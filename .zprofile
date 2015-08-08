@@ -14,3 +14,4 @@ export LANG LANGUAGE LC_ALL
 EDITOR="/usr/local/bin/vim"
 ALTERNATE_EDITOR="/usr/bin/emacs"
 export EDITOR ALTERNATE_EDITOR
+eval "$(pyenv init -)"
