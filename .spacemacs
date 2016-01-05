@@ -26,16 +26,22 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     git
+     ;; git
      ;; markdown
-     org
+     ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+
+     ;; my enabled layers
      ansible
+     git
+     org
+     osx
+     (python :variables python-test-runner 'pytest)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -243,13 +249,18 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  ;; enable linum
+  (global-linum-mode)
+  (with-eval-after-load 'linum
+    (linum-relative-toggle))
+
+  ;; follow symlinks automatically
+  (setq vc-follow-symlinks t)
+
+  ;; add 'jk' as escape sequence
+  (setq-default evil-escape-key-sequence "jk")
   )
-
-;; My custom settings
-;;;;;;;;;;;;;;;;;;;;;
-
-(setq-default evil-escape-key-sequence "jk")
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
