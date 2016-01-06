@@ -113,10 +113,10 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro for Powerline"
-                               :size 14
+                               :size 13
                                :weight light
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -244,14 +244,19 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
-  (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
-  (setq exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path))
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  ;; Use coreutils
+  (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
+  (setq exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path))
+
+  ;; Use OS setting for right option key
+  (setq mac-right-option-modifier 'nil)
 
   ;; enable linum
   (global-linum-mode)
