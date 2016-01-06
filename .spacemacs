@@ -112,9 +112,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight normal
+   dotspacemacs-default-font '("Source Code Pro for Powerline"
+                               :size 14
+                               :weight light
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
@@ -236,7 +236,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'all
    ))
 
 (defun dotspacemacs/user-init ()
@@ -244,6 +244,8 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
+  (setq exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path))
   )
 
 (defun dotspacemacs/user-config ()
