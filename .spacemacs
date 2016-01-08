@@ -81,7 +81,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -194,7 +194,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -268,6 +268,17 @@ layers configuration. You are free to put any user code."
 
   ;; add 'jk' as escape sequence
   (setq-default evil-escape-key-sequence "jk")
+
+  ;; shortcuts for window movement
+  (global-set-key [M-s-left] 'windmove-left)
+  (global-set-key [M-s-right] 'windmove-right)
+  (global-set-key [M-s-up] 'windmove-up)
+  (global-set-key [M-s-down] 'windmove-down)
+  (global-set-key (kbd "M-s-h") 'windmove-left)
+  (global-set-key (kbd "M-s-l") 'windmove-right)
+  (global-set-key (kbd "M-s-k") 'windmove-up)
+  (global-set-key (kbd "M-s-j") 'windmove-down)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
