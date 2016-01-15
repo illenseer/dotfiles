@@ -25,7 +25,7 @@ values."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
-     emacs-lisp
+     ;; emacs-lisp
      ;; git
      ;; markdown
      ;; org
@@ -38,6 +38,9 @@ values."
 
      ;; my enabled layers
      ansible
+     auto-completion
+     better-defaults
+     emacs-lisp
      git
      org
      osx
@@ -267,7 +270,8 @@ layers configuration. You are free to put any user code."
   (setq vc-follow-symlinks t)
 
   ;; add 'jk' as escape sequence
-  (setq-default evil-escape-key-sequence "jk")
+  (setq evil-escape-key-sequence "jk")
+  (setq evil-escape-delay 0.3)
 
   ;; shortcuts for window movement
   (global-set-key [M-s-left] 'windmove-left)
