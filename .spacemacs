@@ -256,22 +256,26 @@ layers configuration. You are free to put any user code."
 
   ;; Use coreutils
   (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
-  (setq exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path))
+  (setq
+   exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path)
 
-  ;; Use OS setting for right option key
-  (setq mac-right-option-modifier 'nil)
+   ;; Use OS setting for right option key
+   mac-right-option-modifier 'nil
+
+   ;; follow symlinks automatically
+   vc-follow-symlinks t
+
+   ;; add 'jk' as escape sequence
+   evil-escape-key-sequence "jk"
+   evil-escape-delay 0.3
+
+   frame-title-format (list '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
+   )
 
   ;; enable linum
   (global-linum-mode)
   (with-eval-after-load 'linum
     (linum-relative-toggle))
-
-  ;; follow symlinks automatically
-  (setq vc-follow-symlinks t)
-
-  ;; add 'jk' as escape sequence
-  (setq evil-escape-key-sequence "jk")
-  (setq evil-escape-delay 0.3)
 
   ;; shortcuts for window movement
   (global-set-key [M-s-left] 'windmove-left)
