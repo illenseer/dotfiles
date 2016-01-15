@@ -46,6 +46,7 @@ values."
      osx
      (python :variables
              python-test-runner 'pytest)
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -269,8 +270,15 @@ layers configuration. You are free to put any user code."
    evil-escape-key-sequence "jk"
    evil-escape-delay 0.3
 
+   ;; title
    frame-title-format (list '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
+
+   ;; git settings
+   magit-repository-directories '("~/vrmd/repos/")
+   git-magit-status-fullscreen t
    )
+
+  (global-git-commit-mode t)
 
   ;; enable linum
   (global-linum-mode)
