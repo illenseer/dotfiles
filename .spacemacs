@@ -42,10 +42,15 @@ values."
      better-defaults
      emacs-lisp
      git
+     ibuffer
+     markdown
      org
      osx
      (python :variables
              python-test-runner 'pytest)
+     (ranger :variables
+             ranger-show-preview t)
+     themes-megapack
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -105,13 +110,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         solarized-light
+   dotspacemacs-themes '(subatomic
+                         material
                          solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+                         spacemacs-dark
+                         monokai)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -240,7 +243,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'all
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -257,14 +260,11 @@ layers configuration. You are free to put any user code."
 
   ;; Use coreutils
   (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
-  (setq
+  (setq-default
    exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path)
 
    ;; Use OS setting for right option key
    mac-right-option-modifier 'nil
-
-   ;; follow symlinks automatically
-   vc-follow-symlinks t
 
    ;; add 'jk' as escape sequence
    evil-escape-key-sequence "jk"
@@ -273,10 +273,27 @@ layers configuration. You are free to put any user code."
    ;; title
    frame-title-format (list '(buffer-file-name "%f" (dired-directory dired-directory "%b")))
 
-   ;; git settings
+   ;; git/vc settings
    magit-repository-directories '("~/vrmd/repos/")
    git-magit-status-fullscreen t
+   magit-push-always-verify nil
+   vc-follow-symlinks t
+
+   ;; ranger
+   ranger-override-dired t
+   ranger-cleanup-on-disable t
+
+   ;; whitespace mode
+   whitespace-style '(face tabs tab-mark newline-mark)
+   whitespace-display-mappings
+   '((newline-mark 10 [172 10])
+     (tab-mark 9 [9655 9]))
+
+   tab-width 4
+
    )
+
+  (global-whitespace-mode)
 
   (global-git-commit-mode t)
 
