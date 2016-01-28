@@ -50,6 +50,9 @@ values."
              python-test-runner 'pytest)
      (ranger :variables
              ranger-show-preview t)
+     spell-checking
+     spotify
+     syntax-checking
      themes-megapack
      version-control
      )
@@ -292,7 +295,14 @@ layers configuration. You are free to put any user code."
      (tab-mark 9 [9655 9]))
 
    tab-width 4
+   avy-all-windows t
 
+   ;; final newline
+   require-final-newline t
+   mode-require-final-newline t
+
+   ;; fill-column-indicator at column 80
+   fci-rule-column 80
    )
 
   (global-whitespace-mode)
