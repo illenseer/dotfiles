@@ -305,7 +305,9 @@ layers configuration. You are free to put any user code."
    fci-rule-column 80
    )
 
-  (global-whitespace-mode)
+  (add-hook 'after-change-major-mode-hook 'fci-mode)
+
+  (global-whitespace-mode t)
 
   (global-git-commit-mode t)
 
