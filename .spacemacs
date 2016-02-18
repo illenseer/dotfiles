@@ -271,7 +271,8 @@ layers configuration. You are free to put any user code."
    mac-right-option-modifier 'nil
 
    ;; add 'jk' as escape sequence
-   evil-escape-key-sequence "jk"
+   ;; evil-escape-key-sequence "jk"
+   ;; increase escape delay
    evil-escape-delay 0.3
 
    ;; title
