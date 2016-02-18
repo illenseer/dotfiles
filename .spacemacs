@@ -304,6 +304,9 @@ layers configuration. You are free to put any user code."
 
    ;; fill-column-indicator at column 80
    fci-rule-column 80
+
+   ;; Change powerline seperator
+   powerline-default-separator 'bar
    )
 
   (add-hook 'after-change-major-mode-hook 'fci-mode)
