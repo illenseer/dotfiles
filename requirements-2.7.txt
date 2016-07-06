@@ -1,3 +1,4 @@
 bpython
 ipython
+path.py
 virtualenv
