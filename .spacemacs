@@ -311,6 +311,8 @@ you should place your code here."
 
    ;; Change powerline seperator
    powerline-default-separator 'bar
+   explicit-shell-file-name "/bin/bash"
+   ;; shell-file-name "/bin/bash"
    )
 
   (add-hook 'after-change-major-mode-hook 'fci-mode)
@@ -337,6 +339,9 @@ you should place your code here."
   (global-set-key (kbd "M-s-@") 'windmove-right)
   (global-set-key (kbd "M-s-∆") 'windmove-up)
   (global-set-key (kbd "M-s-º") 'windmove-down)
+
+  ;; Disable lockfiles for now
+  ;; create-lockfiles nil
 
   )
 
