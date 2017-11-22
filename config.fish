@@ -69,8 +69,8 @@ alias gsc 'git sweep cleanup'
 # brew aliases
 alias b 'brew'
 alias bu 'brew update'
-alias bf 'brew upgrade --all'
-alias buf 'brew update;brew upgrade --all'
+alias bf 'brew upgrade'
+alias buf 'brew update;brew upgrade'
 alias bs 'brew search'
 alias bi 'brew install'
 alias bp 'brew uninstall'
@@ -107,11 +107,13 @@ end
 alias j z
 
 # Virtualfish
-set -g VIRTUALFISH_COMPAT_ALIASES
-source ~/.config/fish/vendor/virtualfish/virtual.fish
+eval (/Users/nils/.pyenv/shims/python -m virtualfish compat_aliases)
 alias va 'vf activate'
 alias vd 'deactivate'
 
+# Vault
+export VAULT_ADDR=https://active.vault.service.scaleup.consul:8200
+alias vt='read -giP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
+
 # pyenv
-set -x PATH "$HOME/.pyenv/bin" $PATH
 . (pyenv init - | psub)
