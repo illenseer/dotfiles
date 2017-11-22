@@ -1,7 +1,0 @@
-bpython
-flake8
-ipython
-path.py
-virtualenv
-virtualfish
-yapf
