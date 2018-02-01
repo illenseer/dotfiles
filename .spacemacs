@@ -30,9 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     javascript
-     csv
+   '(javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -56,6 +54,7 @@ values."
      ansible
      auto-completion
      better-defaults
+     csv
      emacs-lisp
      git
      helm
@@ -149,8 +148,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(subatomic
-                         heroku
                          solarized-dark
+                         heroku
                          spacemacs-dark
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -391,14 +390,14 @@ you should place your code here."
   (global-git-commit-mode t)
 
   ;; shortcuts for window movement
-  (global-set-key [M-s-left] 'windmove-left)
-  (global-set-key [M-s-right] 'windmove-right)
-  (global-set-key [M-s-up] 'windmove-up)
-  (global-set-key [M-s-down] 'windmove-down)
-  (global-set-key (kbd "M-s-h") 'windmove-left)
-  (global-set-key (kbd "M-s-l") 'windmove-right)
-  (global-set-key (kbd "M-s-k") 'windmove-up)
-  (global-set-key (kbd "M-s-j") 'windmove-down)
+  (global-set-key [H-M-left] 'windmove-left)
+  (global-set-key [H-M-right] 'windmove-right)
+  (global-set-key [H-M-up] 'windmove-up)
+  (global-set-key [H-M-down] 'windmove-down)
+  (global-set-key (kbd "H-M-h") 'windmove-left)
+  (global-set-key (kbd "H-M-l") 'windmove-right)
+  (global-set-key (kbd "H-M-k") 'windmove-up)
+  (global-set-key (kbd "H-M-j") 'windmove-down)
   ;; (global-set-key (kbd "M-s-ª") 'windmove-left)
   ;; (global-set-key (kbd "M-s-@") 'windmove-right)
   ;; (global-set-key (kbd "M-s-∆") 'windmove-up)
@@ -417,10 +416,26 @@ you should place your code here."
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
-    (spinner org-category-capture log4e gntp skewer-mode json-snatcher json-reformat multiple-cursors parent-mode request gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip pkg-info epl flx iedit anzu goto-chg undo-tree highlight diminish bind-map bind-key packed pythonic f auto-complete popup dash-functional alert avy async flycheck projectile magit-popup git-commit simple-httpd powerline anaconda-mode tern smartparens evil company helm helm-core yasnippet markdown-mode org-plus-contrib magit with-editor hydra js2-mode s dash define-word yapfify yaml-mode ws-butler winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org subatomic-theme spaceline smeargle reveal-in-osx-finder restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint launchctl json-mode js2-refactor js-doc jinja2-mode insert-shebang info+ indent-guide ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diff-hl cython-mode csv-mode company-tern company-statistics company-shell company-ansible company-anaconda column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (auto-dim-other-buffers spinner org-category-capture log4e gntp skewer-mode json-snatcher json-reformat multiple-cursors parent-mode request gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip pkg-info epl flx iedit anzu goto-chg undo-tree highlight diminish bind-map bind-key packed pythonic f auto-complete popup dash-functional alert avy async flycheck projectile magit-popup git-commit simple-httpd powerline anaconda-mode tern smartparens evil company helm helm-core yasnippet markdown-mode org-plus-contrib magit with-editor hydra js2-mode s dash define-word yapfify yaml-mode ws-butler winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org subatomic-theme spaceline smeargle reveal-in-osx-finder restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint launchctl json-mode js2-refactor js-doc jinja2-mode insert-shebang info+ indent-guide ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diff-hl cython-mode csv-mode company-tern company-statistics company-shell company-ansible company-anaconda column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(package-selected-packages
+   (quote
+    (ghub font-lock+ auto-dim-other-buffers spinner org-category-capture log4e gntp skewer-mode json-snatcher json-reformat multiple-cursors parent-mode request gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip pkg-info epl flx iedit anzu goto-chg undo-tree highlight diminish bind-map bind-key packed pythonic f auto-complete popup dash-functional alert avy async flycheck projectile magit-popup git-commit simple-httpd powerline anaconda-mode tern smartparens evil company helm helm-core yasnippet markdown-mode org-plus-contrib magit with-editor hydra js2-mode s dash define-word yapfify yaml-mode ws-butler winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org subatomic-theme spaceline smeargle reveal-in-osx-finder restart-emacs ranger rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint launchctl json-mode js2-refactor js-doc jinja2-mode insert-shebang info+ indent-guide ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diff-hl cython-mode csv-mode company-tern company-statistics company-shell company-ansible company-anaconda column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#303347" :foreground "#e5e5e5")))))
+ )
+)

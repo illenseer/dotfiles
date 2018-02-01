@@ -115,5 +115,12 @@ alias vd 'deactivate'
 export VAULT_ADDR=https://active.vault.service.scaleup.consul:8200
 alias vt='read -giP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
 
+# Nomad
+export NOMAD_ADDR=https://nomad.service.consul:4646
+alias nt='read -giP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
+
+# iterm2 shell integration
+source ~/.config/fish/iterm2_shell_integration.fish
+
 # pyenv
 . (pyenv init - | psub)
