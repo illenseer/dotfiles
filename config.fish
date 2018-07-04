@@ -2,6 +2,9 @@ set fish_greeting ""
 
 set fish_user_paths ~/.local/bin/
 
+# iterm2 shell integration
+source ~/.config/fish/iterm2_shell_integration.fish
+
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_showuntrackedfiles 1
 set -g __fish_git_prompt_showdirtystate 1
@@ -19,6 +22,10 @@ set __fish_git_prompt_char_upstream_behind '↓'
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 
 set -gx EDITOR "vim"
+
+# Set LANG and LC_ALL
+set -gx LANG "en_US.UTF-8"
+set -gx LC_ALL "en_US.UTF-8"
 
 set fish_color_user "yellow"
 set fish_color_status "red"
@@ -80,6 +87,7 @@ alias bl 'brew list -1'
 alias sed 'gsed'
 alias find 'gfind'
 alias grep 'ggrep'
+alias awk 'gawk'
 alias tar 'gtar'
 
 # helpful aliases
@@ -119,8 +127,31 @@ alias vt='read -giP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
 export NOMAD_ADDR=https://nomad.service.consul:4646
 alias nt='read -giP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
 
-# iterm2 shell integration
-source ~/.config/fish/iterm2_shell_integration.fish
+# Check for robot running (context EPP Proxy)
+function robot --description 'Check what robot is running on vm29.'
+    ssh vm29 "sudo -u martenl ps -ef" | perl -n -e'/(?:tlds|registries)\/(\S+?)\/(?:robot\/)?work.sh/ && print $1 . "\n"'
+end
+
+function loop-robot --description 'Periodically check what robot is running on vm29.'
+  set rob ""
+  while true
+    set new_rob (robot)
+    if [ "$new_rob" = "" ]
+      set_color --bold green
+      set new_rob "idle"
+    else
+      set_color normal
+    end
+    if [ "$rob" != "$new_rob" ]
+      if [ $new_rob = "idle" ]
+        noti -m "robot is idle"
+      end
+      set rob $new_rob
+      echo $rob | awk '{ print strftime("%H:%M:%S"), $0; fflush(); }'
+    end
+    sleep 3
+  end
+end
 
 # pyenv
 . (pyenv init - | psub)
