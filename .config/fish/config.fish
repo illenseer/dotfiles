@@ -92,7 +92,7 @@ alias tar 'gtar'
 
 # helpful aliases
 alias rm 'rm -i'
-alias mc 'mc -d'
+alias mc 'env LC_ALL=C mc -d'
 alias ek 'vi ~/.ssh/known_hosts'
 alias es 'vi ~/.ssh/config'
 
@@ -119,9 +119,12 @@ eval (/Users/nils/.pyenv/shims/python -m virtualfish compat_aliases)
 alias va 'vf activate'
 alias vd 'deactivate'
 
+# Ansible
+set -gx VRMD_ANSIBLE_DIR "/Users/nils/vrmd/repos/ansible"
+
 # Vault
 export VAULT_ADDR=https://active.vault.service.scaleup.consul:8200
-alias vt='read -giP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
+alias vt='read -gsP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
 
 # Nomad
 export NOMAD_ADDR=https://nomad.service.consul:4646
