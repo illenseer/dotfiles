@@ -126,6 +126,9 @@ set -gx VRMD_ANSIBLE_DIR "/Users/nils/vrmd/repos/ansible"
 export VAULT_ADDR=https://active.vault.service.scaleup.consul:8200
 alias vt='read -gsP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
 
+# Consul
+alias ct='read -gsP "Consul token: " CONSUL_HTTP_TOKEN; export CONSUL_HTTP_TOKEN'
+
 # Nomad
 export NOMAD_ADDR=https://nomad.service.consul:4646
 alias nt='read -giP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
