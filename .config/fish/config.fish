@@ -131,7 +131,7 @@ alias ct='read -gsP "Consul token: " CONSUL_HTTP_TOKEN; export CONSUL_HTTP_TOKEN
 
 # Nomad
 export NOMAD_ADDR=https://nomad.service.consul:4646
-alias nt='read -giP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
+alias nt='read -gsP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
 
 # Check for robot running (context EPP Proxy)
 function robot --description 'Check what robot is running on vm29.'
@@ -161,3 +161,4 @@ end
 
 # pyenv
 . (pyenv init - | psub)
+set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
