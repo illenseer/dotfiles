@@ -523,6 +523,9 @@ before packages are loaded."
    ;; Python
    python-shell-interpreter "/Users/nils/.pyenv/shims/python3"
    python-shell-interpreter-args ""
+   flycheck-python-pycompile-executable "/Users/nils/.pyenv/shims/python3"
+   flycheck-python-flake8-executable "/Users/nils/.local/bin/flake8"
+   flycheck-python-mypy-executable "/Users/nils/.local/bin/mypy"
 
    ;; Do not inherit windows in new frame
    persp-init-new-frame-behaviour-override nil
