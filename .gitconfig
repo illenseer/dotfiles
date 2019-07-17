@@ -23,6 +23,8 @@
     l = pull
 [pull]
     rebase = true
+[rebase]
+    autoStash = true
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
