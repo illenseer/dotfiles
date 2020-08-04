@@ -114,24 +114,27 @@ end
 . ~/.config/fish/vendor/z-fish/z.fish
 alias j z
 
+# Python CA certs
+set -gx SSL_CERT_FILE "/usr/local/etc/openssl@1.1/cert.pem"
+set -gx REQUESTS_CA_BUNDLE "/usr/local/etc/openssl@1.1/cert.pem"
+
 # Virtualfish
-eval (/Users/nils/.pyenv/shims/python -m virtualfish compat_aliases)
 alias va 'vf activate'
-alias vd 'deactivate'
+alias vd 'vf deactivate'
 
 # Ansible
 set -gx VRMD_ANSIBLE_DIR "/Users/nils/vrmd/repos/ansible"
 
 # Vault
-export VAULT_ADDR=https://active.vault.service.scaleup.consul:8200
-alias vt='read -gsP "Vault token: " VAULT_TOKEN; export VAULT_TOKEN'
+set -gx VAULT_ADDR "https://active.vault.service.scaleup.consul:8200"
+alias vt='read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
 
 # Consul
-alias ct='read -gsP "Consul token: " CONSUL_HTTP_TOKEN; export CONSUL_HTTP_TOKEN'
+alias ct='read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOKEN $CONSUL_HTTP_TOKEN'
 
 # Nomad
-export NOMAD_ADDR=https://nomad.service.consul:4646
-alias nt='read -gsP "Nomad token: " NOMAD_TOKEN; export NOMAD_TOKEN'
+set -gx NOMAD_ADDR "https://nomad.service.consul:4646"
+alias nt='read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
 
 # Check for robot running (context EPP Proxy)
 function robot --description 'Check what robot is running on vm29.'
@@ -160,6 +163,21 @@ function loop-robot --description 'Periodically check what robot is running on v
 end
 
 # pyenv
-. (pyenv init - | psub)
+pyenv init - | source
+
+# direnv
+eval (direnv hook fish)
+
+# openssl for compiling
+set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+
 set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+set -x PATH /Users/nils/.local/bin $PATH
+
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+set -x PATH /Users/nils/.local/bin $PATH
+
