@@ -1,23 +1,37 @@
 set fish_greeting ""
-
 set fish_user_paths ~/.local/bin/
 
-# iterm2 shell integration
-source ~/.config/fish/iterm2_shell_integration.fish
-
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
-
 set -gx EDITOR "vim"
 
 # Set LANG and LC_ALL
 set -gx LANG "en_US.UTF-8"
 set -gx LC_ALL "en_US.UTF-8"
 
-set fish_color_user "yellow"
-set fish_color_status "red"
-
 set -gx LSCOLORS "gxfxcxdxbxegedabagacad"
 
+# openssl for compiling
+set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+
+# Python CA certs
+set -gx SSL_CERT_FILE "/usr/local/etc/openssl@1.1/cert.pem"
+set -gx REQUESTS_CA_BUNDLE "/usr/local/etc/openssl@1.1/cert.pem"
+
+set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# Treat unrecognized command-line options as warning
+set -x ARCHFLAGS "-Wno-error=unused-command-line-argument-hard-error-in-future"
+
+# Helper functions
+function collapse; sed -e 's/  */ /g'; end
+function cuts; cut -d' ' $argv; end
+function psg -d "Grep for a running process, returning its PID and full string"
+    ps auxww | grep -i --color=always $argv | grep -v grep | collapse | cuts -f 2,11-
+end
+
+# ALIASES
 # git aliases
 alias g 'git'
 alias ga 'git add'
@@ -26,8 +40,9 @@ alias gu 'git reset HEAD --'
 alias gp 'git push'
 alias gpa 'git push --all'
 alias gl 'git pull'
-alias lg "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar %an)%Creset' --abbrev-commit"
+alias lg  lazygit
 alias lgi "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai %an)%Creset' --abbrev-commit"
+alias lgp "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar %an)%Creset' --abbrev-commit"
 alias s 'git status -sb'
 alias gs 'git status -sb'
 alias gst 'git status'
@@ -69,6 +84,9 @@ alias bi 'brew install'
 alias bp 'brew uninstall'
 alias bl 'brew list -1'
 
+# asdf aliases
+alias reshim 'rm -f ~/.asdf/shims/*; asdf reshim'
+
 # GNU userland
 alias sed 'gsed'
 alias find 'gfind'
@@ -81,24 +99,7 @@ alias rm 'rm -i'
 alias mc 'env LC_ALL=C mc -d'
 alias ek 'vi ~/.ssh/known_hosts'
 alias es 'vi ~/.ssh/config'
-
-# Treat unrecognized command-line options as warning
-set -x ARCHFLAGS "-Wno-error=unused-command-line-argument-hard-error-in-future"
-
-# Vagrant
-set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
-alias v 'vagrant'
-
 alias ef "vim ~/.config/fish/config.fish"
-function collapse; sed -e 's/  */ /g'; end
-function cuts; cut -d' ' $argv; end
-function psg -d "Grep for a running process, returning its PID and full string"
-    ps auxww | grep -i --color=always $argv | grep -v grep | collapse | cuts -f 2,11-
-end
-
-# Python CA certs
-set -gx SSL_CERT_FILE "/usr/local/etc/openssl@1.1/cert.pem"
-set -gx REQUESTS_CA_BUNDLE "/usr/local/etc/openssl@1.1/cert.pem"
 
 # Z alias
 alias j 'z'
@@ -107,32 +108,27 @@ alias j 'z'
 alias va 'vf activate'
 alias vd 'vf deactivate'
 
+# VRMD specific
+# Vagrant
+set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
+alias v 'vagrant'
+
 # Ansible
 set -gx VRMD_ANSIBLE_DIR "/Users/nils/vrmd/repos/ansible"
 
-# Vault
+# Consul/Vault/Nomad
 set -gx VAULT_ADDR "https://active.vault.service.scaleup.consul:8200"
-alias vt='read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
-
-# Consul
-alias ct='read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOKEN $CONSUL_HTTP_TOKEN'
-
-# Nomad
 set -gx NOMAD_ADDR "https://nomad.service.consul:4646"
-alias nt='read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
+alias ct 'read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOKEN $CONSUL_HTTP_TOKEN'
+alias vt 'read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
+alias nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
 
+# HELPER
 # add asdf
 source /usr/local/opt/asdf/asdf.fish
 
 # direnv
 eval (direnv hook fish)
-
-# openssl for compiling
-set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
-
-set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
 # starship prompt
 starship init fish | source
