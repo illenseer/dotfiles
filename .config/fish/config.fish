@@ -1,6 +1,8 @@
 set fish_greeting ""
 set fish_user_paths ~/.local/bin/
 
+set fish_color_command white --bold
+
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set -gx EDITOR "vim"
 
@@ -125,7 +127,7 @@ alias nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKE
 
 # HELPER
 # add asdf
-source /usr/local/opt/asdf/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
 
 # direnv
 eval (direnv hook fish)

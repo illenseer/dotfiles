@@ -12,7 +12,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ "$ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX""$TERM" != screen ]; and [ "$TERM" != dumb ]; and [ "$TERM" != linux ]; end
+if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ "$ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX""$TERM" != screen ]; and [ "$ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX""$TERM" != screen-256color ]; and [ "$ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX""$TERM" != tmux-256color ]; and [ "$TERM" != dumb ]; and [ "$TERM" != linux ]; end
   function iterm2_status
     printf "\033]133;D;%s\007" $argv
   end
@@ -30,7 +30,11 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
   # Tell terminal to create a mark at this location
   function iterm2_preexec --on-event fish_preexec
     # For other shells we would output status here but we can't do that in fish.
-    printf "\033]133;C;\007"
+    if [ "$TERM_PROGRAM" = "iTerm.app" ]
+      printf "\033]133;C;\r\007"
+    else
+      printf "\033]133;C;\007"
+    end
   end
 
   # Usage: iterm2_set_user_var key value
@@ -66,7 +70,7 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
     if not functions iterm2_fish_prompt | grep -q iterm2_prompt_mark
       iterm2_prompt_mark
     end
-    sh -c "exit $last_status"
+    return $last_status
   end
 
   function iterm2_check_function -d "Check if function is defined and non-empty"
@@ -118,5 +122,5 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
   end
 
   iterm2_write_remotehost_currentdir_uservars
-  printf "\033]1337;ShellIntegrationVersion=16;shell=fish\007"
+  printf "\033]1337;ShellIntegrationVersion=18;shell=fish\007"
 end

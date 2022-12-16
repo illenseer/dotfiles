@@ -13,7 +13,7 @@ SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/nils/\x2econfig/fish/functio
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
-SETUVAR fish_color_command:\x2d\x2dbold
+SETUVAR fish_color_command:white\x1e\x2d\x2dbold
 SETUVAR fish_color_comment:red
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
