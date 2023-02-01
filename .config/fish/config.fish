@@ -3,7 +3,7 @@ set fish_user_paths ~/.local/bin/
 
 set fish_color_command white --bold
 
-set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+set -gx PATH /opt/homebrew/opt/coreutils/libexec/gnubin $PATH
 set -gx EDITOR "vim"
 
 # Set LANG and LC_ALL
@@ -13,15 +13,15 @@ set -gx LC_ALL "en_US.UTF-8"
 set -gx LSCOLORS "gxfxcxdxbxegedabagacad"
 
 # openssl for compiling
-set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/openssl@3/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openssl@3/include"
 
 # Python CA certs
-set -gx SSL_CERT_FILE "/usr/local/etc/openssl@1.1/cert.pem"
-set -gx REQUESTS_CA_BUNDLE "/usr/local/etc/openssl@1.1/cert.pem"
+set -gx SSL_CERT_FILE "/opt/homebrew/etc/openssl@3/cert.pem"
+set -gx REQUESTS_CA_BUNDLE "/opt/homebrew/etc/openssl@3/cert.pem"
 
-set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+#set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
+set -g fish_user_paths "/opt/homebrew/sbin" $fish_user_paths
 
 # Treat unrecognized command-line options as warning
 set -x ARCHFLAGS "-Wno-error=unused-command-line-argument-hard-error-in-future"
@@ -116,7 +116,7 @@ set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 alias v 'vagrant'
 
 # Ansible
-set -gx VRMD_ANSIBLE_DIR "/Users/nils/vrmd/repos/ansible"
+set -gx VRMD_ANSIBLE_DIR "/Users/nils/work/repos/ansible"
 
 # Consul/Vault/Nomad
 set -gx VAULT_ADDR "https://active.vault.service.scaleup.consul:8200"
@@ -126,6 +126,9 @@ alias vt 'read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKE
 alias nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
 
 # HELPER
+# brew
+eval (/opt/homebrew/bin/brew shellenv)
+
 # add asdf
 source (brew --prefix asdf)/libexec/asdf.fish
 
