@@ -7,3 +7,4 @@ htmlcov/
 .python-version
 *.egg-info
 .direnv
+.tox
