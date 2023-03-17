@@ -401,6 +401,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-line-numbers '(:relative t
                                :enabled-for-modes prog-mode
                                                   text-mode
+                                                  toml-mode
                                                   fundamental-mode
                               )
 
@@ -489,9 +490,9 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
   ;; Use coreutils
-  (setenv "PATH" (concat "/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
+  (setenv "PATH" (concat "/Users/nils/.local/bin:/usr/local/opt/coreutils/libexec/gnubin:" (getenv "PATH")))
   (setq-default
-   exec-path (append '("/usr/local/opt/coreutils/libexec/gnubin") exec-path)
+   exec-path (append '("/Users/nils/.local/bin") '("/usr/local/opt/coreutils/libexec/gnubin") exec-path)
 
    ;; Use OS setting for right option key
    mac-right-option-modifier 'nil
