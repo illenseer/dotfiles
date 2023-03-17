@@ -3,6 +3,9 @@ set fish_user_paths ~/.local/bin/
 
 set fish_color_command white --bold
 
+# Reduce ESC delay to avoid shell command opening in editor
+set -g fish_escape_delay_ms 10
+
 set -gx PATH /opt/homebrew/opt/coreutils/libexec/gnubin $PATH
 set -gx EDITOR "vim"
 
@@ -124,6 +127,9 @@ set -gx NOMAD_ADDR "https://nomad.service.consul:4646"
 alias ct 'read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOKEN $CONSUL_HTTP_TOKEN'
 alias vt 'read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
 alias nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
+
+# Add MySQL Client to path
+fish_add_path /opt/homebrew/opt/mysql-client/bin
 
 # HELPER
 # brew
