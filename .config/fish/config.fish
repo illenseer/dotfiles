@@ -102,21 +102,23 @@ alias tar 'gtar'
 # helpful aliases
 alias rm 'rm -i'
 alias mc 'env LC_ALL=C mc -d'
-alias ek 'vi ~/.ssh/known_hosts'
-alias es 'vi ~/.ssh/config'
-alias ef "vim ~/.config/fish/config.fish"
 
 # Z alias
 alias j 'z'
 
-# Virtualfish
-alias va 'vf activate'
-alias vd 'vf deactivate'
-
-# VRMD specific
-# Vagrant
-set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
-alias v 'vagrant'
+# Leader (,) aliases
+alias ,ud 'cd ~/.emacs.d; git pull; cd; buf'
+alias ,jd 'just deploy'
+alias ,ju 'just update'
+alias ,md 'make deploy'
+alias ,t 'tmux new -s nils -A'
+alias ,ek 'vi ~/.ssh/known_hosts'
+alias ,es 'vi ~/.ssh/config'
+alias ,ef 'vi ~/.config/fish/config.fish'
+alias ,ep 'vi ~/.pip/pip.conf'
+alias ,vt 'vf tmp'
+alias ,va 'vf activate'
+alias ,vd 'vf deactivate'
 
 # Ansible
 set -gx VRMD_ANSIBLE_DIR "/Users/nils/work/repos/ansible"
@@ -128,8 +130,9 @@ alias ct 'read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOKE
 alias vt 'read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
 alias nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
 
-# Add MySQL Client to path
+# Add Database tools to path
 fish_add_path /opt/homebrew/opt/mysql-client/bin
+fish_add_path /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # HELPER
 # brew
