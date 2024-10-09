@@ -1,0 +1,51 @@
+[user]
+    name = Nils Pascal Illenseer
+    email = ni@vm.ag
+
+[core]
+    excludesfile = /Users/nils/.gitignore_global
+    pager = delta
+
+[color]
+    ui = auto
+
+[alias]
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+    lgi= log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai %an)%Creset' --abbrev-commit
+    wipe = "!git reset --hard;git clean -fd"
+    distclean = "!git reset --hard;git clean -fdx"
+    st = status -sb
+    c = commit -v
+    co = checkout
+    d = diff
+    ds = diff --staged
+    dt = difftool
+    mt = mergetool
+    a = add
+    unstage = reset HEAD --
+    p = push -u
+    l = pull
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[push]
+    default = current
+
+[init]
+    defaultBranch = main

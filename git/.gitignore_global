@@ -1,0 +1,10 @@
+.*.swp
+*.pyc
+*~
+.#*
+.coverage
+htmlcov/
+.python-version
+*.egg-info
+.direnv
+.tox
