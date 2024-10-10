@@ -16,14 +16,21 @@ local lazy_config = require "configs.lazy"
 -- load plugins
 require("lazy").setup({
   {
-      "NvChad/NvChad",
-      lazy = false,
-      branch = "v2.5",
-      import = "nvchad.plugins",
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
   },
   {
-      "NoahTheDuke/vim-just",
-      ft = { "just" },
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+  },
+  {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function ()
+      require('leap').add_default_mappings()
+    end
   },
 
   { import = "plugins" },
