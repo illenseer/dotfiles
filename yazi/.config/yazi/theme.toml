@@ -1,2 +1,5 @@
 [flavor]
+# use = "tokyo-night"
+# use = "sunset"
 use = "catppuccin-frappe"
+# use = "kanagawa"
