@@ -21,9 +21,10 @@
     }
   },
   {
-    "context": "Editor",
+    "context": "vim_mode == insert",
     "bindings": {
-      "f d": ["workspace::SendKeystrokes", "escape"]
+      "f d": "vim::NormalBefore",
+      "j k": "vim::NormalBefore"
     }
   }
 ]
