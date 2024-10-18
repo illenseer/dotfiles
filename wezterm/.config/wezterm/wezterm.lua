@@ -16,7 +16,11 @@ return {
     -- color_scheme = "Seti UI (base16)",
     -- color_scheme = "Solarized Dark Higher Contrast",
     -- color_scheme = "Pulp (terminal.sexy)",
-    color_scheme = "Molokai",
+    -- color_scheme = "Molokai",
+    -- color_scheme = 'Ayu Mirage',
+    -- color_scheme = 'Ayu Dark (Gogh)',
+    -- color_scheme = 'Atelierforest (dark) (terminal.sexy)',
+
     font = wezterm.font("JetBrainsMono Nerd Font", {weight = "Bold"}),
     font_size = 14.0,
     window_frame = {
