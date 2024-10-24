@@ -102,6 +102,7 @@ alias j 'cd'
 # Leader (,) aliases
 function  ,ud; cd ~/.emacs.d; git pull; cd -; buf; end
 abbr ,t "tmux new -s nils -A"
+abbr ,z "zellij attach nils --create"
 abbr ,ek "$EDITOR ~/.ssh/known_hosts"
 abbr ,es "$EDITOR ~/.ssh/config"
 abbr ,ef "$EDITOR ~/.config/fish/config.fish"
