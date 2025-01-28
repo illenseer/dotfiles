@@ -49,3 +49,5 @@
 
 [init]
     defaultBranch = main
+[checkout]
+	workers = 0
