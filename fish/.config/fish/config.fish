@@ -159,3 +159,7 @@ set -x FZF_DEFAULT_COMMAND 'fd --hidden -E .git'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x FZF_ALT_C_COMMAND "fd -t d ."
 fzf --fish | source
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.fish 2>/dev/null || :
