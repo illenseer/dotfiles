@@ -83,7 +83,6 @@ alias tar 'gtar'
 
 # helpful aliases
 alias rm 'rm -i'
-alias mc 'env LC_ALL=C mc -d'
 
 # zoxide
 alias j 'cd'
