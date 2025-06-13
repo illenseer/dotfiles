@@ -1,12 +1,10 @@
 set fish_greeting ""
-set fish_user_paths ~/.local/bin/
 
 set fish_color_command white --bold
 
 # Reduce ESC delay to avoid shell command opening in editor
 set -g fish_escape_delay_ms 10
 
-set -gx PATH /opt/homebrew/opt/coreutils/libexec/gnubin $PATH
 set -gx EDITOR "nvim"
 
 # Set LANG and LC_ALL
@@ -23,8 +21,6 @@ set -gx CPPFLAGS "-I/opt/homebrew/opt/openssl@3/include"
 set -gx SSL_CERT_FILE "/opt/homebrew/etc/openssl@3/cert.pem"
 set -gx REQUESTS_CA_BUNDLE "/opt/homebrew/etc/openssl@3/cert.pem"
 
-#set -g fish_user_paths "/usr/local/opt/mysql-client/bin" $fish_user_paths
-set -g fish_user_paths "/opt/homebrew/sbin" $fish_user_paths
 
 # Treat unrecognized command-line options as warning
 set -x ARCHFLAGS "-Wno-error=unused-command-line-argument-hard-error-in-future"
@@ -121,26 +117,9 @@ alias ,ct 'read -gsP "Consul token: " CONSUL_HTTP_TOKEN; set -gx CONSUL_HTTP_TOK
 alias ,vt 'read -gsP "Vault token: " VAULT_TOKEN; set -gx VAULT_TOKEN $VAULT_TOKEN'
 alias ,nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOKEN'
 
-# Add Database tools to path
-fish_add_path /opt/homebrew/opt/mysql-client/bin
-fish_add_path /Applications/Postgres.app/Contents/Versions/latest/bin
-
 # HELPER
 # brew
 eval (/opt/homebrew/bin/brew shellenv)
-
-# add asdf
-# ASDF configuration code
-if test -z $ASDF_DATA_DIR
-    set _asdf_shims "$HOME/.asdf/shims"
-else
-    set _asdf_shims "$ASDF_DATA_DIR/shims"
-end
-
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
 
 # direnv
 eval (direnv hook fish)
@@ -162,3 +141,12 @@ fzf --fish | source
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init.fish 2>/dev/null || :
+
+# Set PATH
+fish_add_path -g /opt/homebrew/opt/mysql-client/bin
+fish_add_path -g /Applications/Postgres.app/Contents/Versions/latest/bin
+fish_add_path -g /opt/homebrew/sbin
+fish_add_path -g /opt/homebrew/opt/coreutils/libexec/gnubin
+fish_add_path -gp /Library/Frameworks/Python.framework/Versions/3.12/bin
+fish_add_path -gp /Library/Frameworks/Python.framework/Versions/3.13/bin /Library/Frameworks/PythonT.framework/Versions/3.13/bin
+fish_add_path -gp ~/.local/bin/
