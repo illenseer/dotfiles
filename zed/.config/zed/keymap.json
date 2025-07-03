@@ -10,14 +10,14 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle",
-      "ctrl-alt-cmd-shift-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-alt-cmd-shift-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-alt-cmd-shift-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-alt-cmd-shift-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-alt-cmd-shift-left": ["workspace::SwapPaneInDirection", "Left"],
-      "ctrl-alt-cmd-shift-right": ["workspace::SwapPaneInDirection", "Right"],
-      "ctrl-alt-cmd-shift-up": ["workspace::SwapPaneInDirection", "Up"],
-      "ctrl-alt-cmd-shift-down": ["workspace::SwapPaneInDirection", "Down"]
+      "ctrl-alt-cmd-shift-h": "workspace::ActivatePaneLeft",
+      "ctrl-alt-cmd-shift-l": "workspace::ActivatePaneRight",
+      "ctrl-alt-cmd-shift-k": "workspace::ActivatePaneUp",
+      "ctrl-alt-cmd-shift-j": "workspace::ActivatePaneDown",
+      "ctrl-alt-cmd-shift-left": "workspace::SwapPaneLeft",
+      "ctrl-alt-cmd-shift-right": "workspace::SwapPaneRight",
+      "ctrl-alt-cmd-shift-up": "workspace::SwapPaneUp",
+      "ctrl-alt-cmd-shift-down": "workspace::SwapPaneDown"
     }
   },
   {
