@@ -1,0 +1,7 @@
+[[ssh-keys]]
+item = "SSH-Key ed25519 (Nils)"
+vault = "Persönlich"
+
+[[ssh-keys]]
+item = "SSH-Key RSA (Nils)"
+vault = "Persönlich"
