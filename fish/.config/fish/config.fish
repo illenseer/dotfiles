@@ -67,8 +67,9 @@ abbr bi 'brew install'
 abbr bp 'brew uninstall'
 abbr bl 'brew list -1'
 
-# asdf aliases
-alias reshim 'rm -f ~/.asdf/shims/*; asdf reshim'
+# dog/dig → doge
+abbr dig 'doge'
+abbr dog 'doge'
 
 # GNU userland
 alias sed 'gsed'
