@@ -27,7 +27,7 @@ return {
   font = wezterm.font("JetBrainsMono Nerd Font", {weight = "Bold"}),
   font_size = 14.0,
   window_frame = {
-    font = wezterm.font("JetBrainsMono Nerd Font", {weight="Bold"}),
+    font = wezterm.font("Proxima Nova", {weight="Bold"}),
     font_size = 16.0,
   },
 
