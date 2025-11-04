@@ -7,12 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-  // "agent": {
-  //   "default_model": {
-  //     "provider": "ollama",
-  //     "model": "codestral:latest"
-  //   }
-  // },
+  "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "codestral:latest"
+    }
+  },
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 14,
