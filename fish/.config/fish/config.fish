@@ -91,6 +91,7 @@ abbr ,z "zellij attach nils --create"
 abbr ,ek "$EDITOR ~/.ssh/known_hosts"
 abbr ,es "$EDITOR ~/.ssh/config"
 abbr ,ef "$EDITOR ~/.config/fish/config.fish"
+abbr ,ez "$EDITOR ~/.config/zellij/config.kdl"
 abbr ,sf "source ~/.config/fish/config.fish"
 abbr ,ep "$EDITOR ~/.pip/pip.conf"
 abbr ,vt "vf tmp"
@@ -148,6 +149,4 @@ fish_add_path -g /opt/homebrew/opt/mysql-client/bin
 fish_add_path -g /Applications/Postgres.app/Contents/Versions/latest/bin
 fish_add_path -g /opt/homebrew/sbin
 fish_add_path -g /opt/homebrew/opt/coreutils/libexec/gnubin
-fish_add_path -gp /Library/Frameworks/Python.framework/Versions/3.12/bin
-fish_add_path -gp /Library/Frameworks/Python.framework/Versions/3.13/bin /Library/Frameworks/PythonT.framework/Versions/3.13/bin
 fish_add_path -gp ~/.local/bin/
