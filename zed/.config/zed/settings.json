@@ -7,32 +7,48 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "disabled_globs": ["~/work/repos/ansible"],
+  },
   "agent": {
-    "default_model": {
-      "provider": "ollama",
-      "model": "codestral:latest"
-    }
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
   },
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 14,
-  "relative_line_numbers": true,
+  "agent_buffer_font_size": 14.0,
+  "agent_ui_font_size": 16.0,
+  "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Dark",
   },
   "lsp": {
     "basedpyright": {
       "settings": {
         "analysis": {
           "diagnosticMode": "workspace",
-          "typeCheckingMode": "strict"
         },
         "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
+          "pythonPath": ".venv/bin/python",
+        },
+      },
     },
     "ruff": {
       "initialization_options": {
@@ -40,25 +56,46 @@
           // Ruff server settings goes here
           "lineLength": 79,
           "lint": {
-            "extendSelect": ["I"]
-          }
-        }
-      }
-    }
+            "extendSelect": ["I"],
+          },
+        },
+      },
+    },
   },
   "languages": {
     "Python": {
-      "language_servers": ["basedpyright", "ruff"],
+      "allow_rewrap": "in_comments",
+      "language_servers": ["ty", "!basedpyright", "ruff"],
       "format_on_save": "on",
-      "formatter": [
-        { "code_action": "source.organizeImports.ruff" },
-        { "code_action": "source.fixAll.ruff" },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
-  }
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+      },
+      "formatter": {
+        "language_server": {
+          "name": "ruff",
+        },
+      },
+    },
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    ".python-history",
+    "__pycache__",
+    ".*cache",
+    ".claude",
+    ".cursor",
+    ".venv",
+    "htmlcov",
+    ".vscode",
+    ".idea",
+    ".playwright-mcp",
+  ],
 }
