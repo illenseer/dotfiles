@@ -94,9 +94,6 @@ abbr ,ef "$EDITOR ~/.config/fish/config.fish"
 abbr ,ez "$EDITOR ~/.config/zellij/config.kdl"
 abbr ,sf "source ~/.config/fish/config.fish"
 abbr ,ep "$EDITOR ~/.pip/pip.conf"
-abbr ,vt "vf tmp"
-abbr ,va "vf activate"
-abbr ,vd "vf deactivate"
 abbr ,ew "$EDITOR ~/.config/wezterm/wezterm.lua"
 
 # just/make
