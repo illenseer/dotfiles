@@ -40,6 +40,26 @@
     "dark": "Ayu Dark",
   },
   "lsp": {
+    "ansible-language-server": {
+      "settings": {
+        "ansible": {
+          "path": "/Users/nils/.local/bin/ansible"
+        },
+        "executionEnvironment": {
+          "enabled": false
+        },
+        "python": {
+          "interpreterPath": "python3"
+        },
+        "validation": {
+          "enabled": false,
+          "lint": {
+            "enabled": false,
+            "path": "/Users/nils/.local/bin/ansible-lint"
+          }
+        }
+      }
+    },
     "basedpyright": {
       "settings": {
         "analysis": {
