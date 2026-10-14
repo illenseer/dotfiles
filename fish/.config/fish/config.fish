@@ -121,7 +121,7 @@ alias ,nt 'read -gsP "Nomad token: " NOMAD_TOKEN; set -gx NOMAD_TOKEN $NOMAD_TOK
 eval (/opt/homebrew/bin/brew shellenv)
 
 # direnv
-eval (direnv hook fish)
+direnv hook fish | source
 
 # starship prompt
 starship init fish | source
