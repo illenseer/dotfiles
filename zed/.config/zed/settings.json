@@ -36,8 +36,8 @@
   "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Ayu Dark",
+    "light": "Ayu Light",
+    "dark": "Ayu Dark"
   },
   "lsp": {
     "ansible-language-server": {
